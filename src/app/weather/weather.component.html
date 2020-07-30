@@ -1,0 +1,62 @@
+<table class="table-responsive h-100">
+  <tr>
+    <th>
+      <div id="pesquisarRegiao"class="classePesquisa">
+        <h3 class="titulo">Clima Tempo</h3>
+        <form
+          [formGroup]="pesquisaClimaRegiao"
+          (ngSubmit)="getClima(pesquisaClimaRegiao.value)">
+          <div class="localizacao">
+            <input            
+              class="form-control"
+              type="text"         
+              placeholder="Digite a região que deseja saber a previsão"
+              id="weatherLocation"
+              aria-describedby="weatherLocation"
+              formControlName="location" autofocus 
+            >
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" >
+              Buscar
+            </button>
+          </div>
+         </form>
+      </div>
+    </th>
+  </tr>
+  <tr class="{{this.visivel}}"  align="center">
+    <th>
+      <div>
+        <div class="base-card  current-weather" data-current-weather>
+          <a class="regiao">
+            <span>{{ this.name}}, {{ this.cidade}}</span>
+          </a>  
+          <div class="ilustracao">
+            <img src= {{this.icone}} width="90" height="90" alt="Ícone de temperatura atual">        
+
+            <div>
+              <h3 class="temp"> {{ this.temperatura }} ºC</h3>
+            </div>
+          </div>
+          <span class="info">Sensação<br>
+            <span>{{this.graus}}º ST</span>
+          </span>
+          <span class="info">Velocidade<br>
+            <span>{{this.velocidade}} Km/h</span>
+          </span>
+          <span class="info">Pressão<br>
+            <span>{{this.pressao}} hPa</span>
+          </span>
+          <span class="info">Umidade<br>
+            <span>{{this.umidade}}% UR</span>
+          </span>
+          <span class="info">Chuva<br>
+            <span>{{this.nublado}}%</span>       
+          </span> 
+          <span class="font-small">{{this.horaLocal}}</span>
+        </div>
+      </div>
+    </th>
+  </tr>
+</table>
