@@ -1,11 +1,12 @@
 # WeatherApplic
 Essse projeto foi gerado com  [Angular CLI](https://github.com/angular/angular-cli) versão 8.3.12.
 
+## Baixar dependências
+npm install
+
 ## Iniciando servidor
 Rode `ng serve`. Navegue para `http://localhost:4200/`. A aplicação ira dar reload automaticamente quando for feito alguma alteração em algum arquivo do source.
 
-## Baixar dependencias
-npm install
 
 ## Obtendo a região do usuário
 Será apresentado ao usuário o formulário [pesquisaClimaRegiao] disponivel no weather.component.html, para que seja informado a região a ser pesquisada.
