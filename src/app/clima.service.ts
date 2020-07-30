@@ -9,7 +9,7 @@ export class ClimaService {
   constructor(private http: HttpClient) {  }
 
   getWeather(location) {
-    let apiKey = '700553c8e32815632a07b9f5cf0f4bec';
+    let apiKey = '4edec16d691990d101f6f221408f76b1';
     return this.http.get(
      `http://api.weatherstack.com/current?access_key=${apiKey}&query=${location}`       
     );

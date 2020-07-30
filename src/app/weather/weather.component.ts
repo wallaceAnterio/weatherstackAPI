@@ -69,17 +69,37 @@ export class WeatherComponent implements OnInit {
   }
   setIcone(){
     let temperatura = this.weatherData.current.temperature;
-     
-    if (temperatura >= 23 && temperatura <= 28)
+    let hora =  parseInt(this.horaLocal.substring(11,13)); 
+
+    //Tempo Tarde e Manhã (considerando após 05h): Exibe o ícone de sol + nuvem caso temperatura >=23 e<=27
+    if ((temperatura >= 23 && temperatura <= 27) && (hora >= 5 && hora < 18))
     {
       return this.icone = '/assets/img/weather_icon_partly_cloudy.svg';
     }
-    if (temperatura >= 29 && temperatura <= 40)
+
+    //Tempo Tarde e Manhã (considerando após 05h): Exibe o ícone de chuva caso temperatura <= 22
+    if ((temperatura <= 22) && (hora >= 5 && hora < 18))
+    {
+      return this.icone = '/assets/img/weather_icon_rainy.svg'
+    }
+
+    //Tempo Tarde: Exibe o ícone de sol caso temperatura >= 28
+    if ((temperatura >= 28 ) && (hora >= 12 && hora < 18))
     {
       return this.icone = '/assets/img/weather_icon_full_sun.svg'
     }
-    if (temperatura < 23) {
-      return this.icone = '/assets/img/weather_icon_rainy.svg'
+
+    //Tempo Noite (considerando 00h às 04h): Exibe o ícone de chuva com raios caso temperatura <= 21
+    if ((temperatura <= 21) && ((hora >= 0 && hora <= 4) || (hora >= 18 && hora <= 24) ))
+    {
+      return this.icone = '/assets/img/weather_icon_thunder.svg'
     }
+
+    //Tempo Noite (considerando 00h às 04h): Exibe o ícone de nuvens caso temperatura >= 22
+    if ((temperatura >= 22) && ((hora >= 0 && hora <= 4) || (hora >= 18 && hora <= 24) ))
+    {
+      return this.icone = '/assets/img/weather_icon_full_clouds.svg'
+    }
+
   }
 }
